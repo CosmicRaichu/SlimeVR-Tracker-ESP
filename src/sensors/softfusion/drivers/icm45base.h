@@ -230,6 +230,8 @@ struct ICM45Base {
 			BaseRegs::FifoConfig3::reg,
 			BaseRegs::FifoConfig3::value
 		);
+		writeBankRegister<BaseRegs::IPregSys1Reg166>();
+		writeBankRegister<BaseRegs::IPregSys2Reg123>();
 		m_RegisterInterface.writeReg(
 			BaseRegs::PwrMgmt0::reg,
 			BaseRegs::PwrMgmt0::value
@@ -239,9 +241,6 @@ struct ICM45Base {
 			BaseRegs::IOCPadScenarioAuxOvrd::reg,
 			BaseRegs::IOCPadScenarioAuxOvrd::value
 		);
-
-		writeBankRegister<BaseRegs::IPregSys1Reg166>();
-		writeBankRegister<BaseRegs::IPregSys2Reg123>();
 
 		read_buffer.resize(FullFifoEntrySize * MaxReadings);
 
