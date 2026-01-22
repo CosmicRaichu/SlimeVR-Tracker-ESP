@@ -58,7 +58,7 @@
 #endif
 
 #ifndef VENDOR_NAME
-#define VENDOR_NAME "Unknown"
+#define VENDOR_NAME "acey"
 #endif
 
 #ifndef VENDOR_URL
@@ -66,7 +66,7 @@
 #endif
 
 #ifndef PRODUCT_NAME
-#define PRODUCT_NAME "DIY SlimeVR Tracker"
+#define PRODUCT_NAME "acey's doohickey"
 #endif
 
 #ifndef UPDATE_ADDRESS

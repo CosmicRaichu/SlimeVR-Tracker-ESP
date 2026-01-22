@@ -26,53 +26,33 @@
 // ================================================
 
 // Set parameters of IMU and board used
-#ifndef IMU
-#define IMU IMU_AUTO
-#endif
-#ifndef SECOND_IMU
-#define SECOND_IMU IMU_AUTO
-#endif
-#ifndef BOARD
-#define BOARD BOARD_SLIMEVR_V1_2
-#endif
-#ifndef IMU_ROTATION
-#define IMU_ROTATION DEG_270
-#endif
-#ifndef SECOND_IMU_ROTATION
-#define SECOND_IMU_ROTATION DEG_270
-#endif
+#pragma once
+#define IMU IMU_BMI270
+#define SECOND_IMU IMU
+#define BOARD BOARD_WEMOSD1MINI
+#define IMU_ROTATION DEG_0
+#define SECOND_IMU_ROTATION DEG_0
 
-#ifndef PRIMARY_IMU_OPTIONAL
 #define PRIMARY_IMU_OPTIONAL false
-#endif
-#ifndef SECONDARY_IMU_OPTIONAL
 #define SECONDARY_IMU_OPTIONAL true
+
+#define MAX_IMU_COUNT 1
+
+#ifndef IMU_DESC_LIST
+#define IMU_DESC_LIST \
+IMU_DESC_ENTRY(IMU,        PRIMARY_IMU_ADDRESS_ONE,   IMU_ROTATION,        PIN_IMU_SCL, PIN_IMU_SDA, PRIMARY_IMU_OPTIONAL,   PIN_IMU_INT)
+
 #endif
 
-// Set I2C address here or directly in IMU_DESC_ENTRY for each IMU used
-// If not set, default address is used based on the IMU and Sensor ID
-// #define PRIMARY_IMU_ADDRESS_ONE 0x4a
-// #define SECONDARY_IMU_ADDRESS_TWO 0x4b
-
-#ifndef BATTERY_MONITOR
 // Battery monitoring options (comment to disable):
 //   BAT_EXTERNAL for ADC pin,
 //   BAT_INTERNAL for internal - can detect only low battery,
 //   BAT_MCP3021 for external ADC connected over I2C
 #define BATTERY_MONITOR BAT_EXTERNAL
-#endif
+#define BATTERY_SHIELD_RESISTANCE 180 //130k BatteryShield, 180k SlimeVR or fill in external resistor value in kOhm
 
-// --- OVERRIDES FOR DEFAULT PINS
-
-// #define PIN_IMU_SDA 14
-// #define PIN_IMU_SCL 12
-// #define PIN_IMU_INT 16
-// #define PIN_IMU_INT_2 13
-// #define PIN_BATTERY_LEVEL 17
-// #define LED_PIN 2
-// #define LED_INVERTED true
-// #define BATTERY_SHIELD_RESISTANCE 0
-// #define BATTERY_SHIELD_R1 10
-// #define BATTERY_SHIELD_R2 40.2
-
-// ------------------------------
+#define PIN_IMU_SDA D2
+#define PIN_IMU_SCL D1
+#define PIN_IMU_INT D5
+#define PIN_IMU_INT_2 D6
+#define PIN_BATTERY_LEVEL A0
