@@ -27,7 +27,7 @@
 
 // Set parameters of IMU and board used
 #pragma once
-#define IMU IMU_BMI270
+#define IMU IMU_LSM6DSV
 #define SECOND_IMU IMU
 #define BOARD BOARD_WEMOSD1MINI
 #define IMU_ROTATION DEG_0

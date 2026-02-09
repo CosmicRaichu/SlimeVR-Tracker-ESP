@@ -16,7 +16,7 @@ COLOR_GRAY = f'{COLOR_ESC}30;1m'
 
 
 class DeviceConfiguration:
-    def __init__(self,  platform: str, board: str, platformio_board: str) -> None:
+    def __init__(self, platform: str, board: str, platformio_board: str) -> None:
         self.platform = platform
         self.board = board
         self.platformio_board = platformio_board
@@ -29,25 +29,11 @@ class DeviceConfiguration:
 
 
 def get_matrix() -> List[DeviceConfiguration]:
-    matrix: List[DeviceConfiguration] = []
-
-    config = configparser.ConfigParser()
-    config.read("./platformio.ini")
-    for section in config.sections():
-        split = section.split(":")
-        if len(split) != 2 or split[0] != 'env':
-            continue
-
-        board = split[1]
-        platform = config[section]["platform"]
-        platformio_board = config[section]["board"]
-
-        matrix.append(DeviceConfiguration(
-            platform,
-            board,
-            platformio_board))
-
-    return matrix
+    return [DeviceConfiguration(
+        "espressif8266 @ 4.2.1",
+        "esp12e",
+        "BOARD_WEMOSD1MINI")]
+    # and nothing else matters
 
 
 def prepare() -> None:
